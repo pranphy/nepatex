@@ -1,0 +1,156 @@
+\ProvidesPackage{PNepali}
+\usepackage{fontspec}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{sanskrit}
+
+
+\makeatletter
+\newcommand*\devanagari[1]{\expandafter\@devanagari\csname c@#1\endcsname}
+
+\newcommand*\@devanagarinumber[1]{%
+  \ifcase#1\or १\or २\or ३\or ४\or ५\or ६\or ७\or ८\or ९\fi}
+\makeatother
+
+
+\newcommand{\devanagarinumeral}[1]{%
+  \devanagaridigits{\number\csname c@#1\endcsname}}
+  
+
+\makeatletter
+\def\devanagari@roman#1{%
+ \ifcase#1\or अ\or आ\or इ\or ई\or उ\or ऊ\or रि\or ए\or ऐ\or ओ\or
+  औ\or\else\@ctrerr\fi}
+
+\def\devanagari@alph#1{%
+ \ifcase#1\or क\or ख\or ग\or घ\or ङ\or च\or छ\or ज\or झ\or ञ\or
+  ट\or ठ\or ड\or ढ\or ण\or त\or थ\or द\or ध\or न\or प\or फ\or ब\or भ\or म\or
+   य\or र\or ल\or व\or श\or ष\or स\or ह\else\@ctrerr\fi}
+% Imitating xgreek.sty and xepersian.sty
+\let\@alph\devanagari@alph
+\let\@Alph\devanagari@alph
+\let\@roman\devanagari@roman
+\let\@Roman\devanagari@alph
+
+
+\renewcommand{\labelenumi}{\theenumi.}
+\renewcommand{\theenumi}{\devanagarinumeral{enumi}}
+% Change appearance of enumerate at levels 2, 3, 4.
+%\renewcommand{\labelenumi}{\theenumiv. } % Instead of: (\theenumii)
+\renewcommand{\labelenumii}{\theenumii.} % Instead of: (\theenumii)
+\renewcommand{\labelenumiii}{\theenumiii.} % Instead of: \theenumiii.
+\renewcommand{\theenumiii}{\@roman\c@enumiii} % Instead of: \@roman\c@enumiii
+\renewcommand{\labelenumiv}{(\theenumiv)} % Instead of: \theenumiv.
+\makeatother
+  
+
+% renew all representation of counters
+\renewcommand{\thesection}{\devanagarinumeral{section}}
+\renewcommand{\thesubsection}{\thesection.\devanagarinumeral{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\devanagarinumeral{subsubsection}}
+\renewcommand{\thepage}{\devanagarinumeral{page}}
+\renewcommand{\thefigure}{\devanagarinumeral{figure}}
+\renewcommand{\thetable}{\devanagarinumeral{table}}
+
+\renewcommand{\theequation}{\devanagarinumeral{equation}}
+
+\makeatletter
+\renewcommand\@biblabel[1]{\devanagarinumeral{#1}}
+\makeatother
+
+\renewcommand{\contentsname}{विषय-सुचि}
+\renewcommand{\abstractname}{सारांश}
+\renewcommand{\tablename}{तालिका}
+\renewcommand{\figurename}{चित्र}
+
+
+\makeatother
+
+
+\newenvironment{zenumerate}%
+{\begin{enumerate}\itemsep-0.1em}%
+{\end{enumerate}}%
+
+
+\def\stdDate{\today}
+
+\def\stdOrganization{The Delta Finders}
+\def\stdOrganizationAddress{काभ्रेपलाञ्चोक, नेपाल}
+
+
+\def\stdAuthorName{प्रकाश गौतम$^{१}$, माधव हुमागाईँ}
+\def\stdAuthorEmail{email}
+
+\def\stdTitle{~}
+\def\stdSubject{~}
+\def\stdOBracket{(}
+\def\stdCBracket{)}
+
+
+\newcommand{\stAuthorName}[1]
+{
+    \def\stdAuthorName{#1}
+}
+
+\newcommand{\stAuthorEmail}[1]
+{
+    \def\stdAuthorEmail{#1}
+}
+
+\newcommand{\stOrganization}[1]
+{
+    \def\stdOrganization{#1}
+}
+
+\newcommand{\stTitle}[2][~]
+{
+    \def\stdSubject{#1}    
+    \def\stdTitle{#2}
+}
+
+
+\newcommand{\stCoverTitle}[1]
+{
+    
+    \def\stdOBracket{~}
+    \def\stdCBracket{~}
+    \def\stdCoverTitle{#1}
+}
+
+\newcommand{\stDate}[1]
+{
+    \def\stdDate{#1}
+}
+
+\newcommand{\stAuthor}{
+    \author
+    {
+        {
+            \stdAuthorName
+        }\\
+        \vspace{1.6mm}
+        \fontsize{10}{10}\selectfont\itshape
+        %\begin{tiny}
+        %
+        $^{\#}$\stdOrganization\\
+        \stdOrganizationAddress\\
+        %\end{tiny}
+        %
+        \fontsize{9}{9}\selectfont\ttfamily\upshape
+        \,\stdAuthorEmail\\
+        \fontsize{10}{10}\selectfont\rmfamily\itshape
+    }
+}
+
+\newcommand{\stConfTitle}{%
+    \title{\stdTitle}%
+    \author{\stdAuthorName}%
+    \address{\stdOrganization, \stdOrganizationAddress}%
+    %\ead{\stdAuthorEmail}
+}
+
+\newcommand{\stMakeTitle}{%
+    \title{\stdTitle}%
+    \stAuthor%
+    \maketitle%
+}
