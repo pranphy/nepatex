@@ -19,7 +19,7 @@
 
 \makeatletter
 \def\devanagari@roman#1{%
- \ifcase#1\or अ\or आ\or इ\or ई\or उ\or ऊ\or रि\or ए\or ऐ\or ओ\or
+ \ifcase#1\or अ\or आ\or इ\or ई\or उ\or ऊ\or ऋ\or ए\or ऐ\or ओ\or
   औ\or\else\@ctrerr\fi}
 
 \def\devanagari@alph#1{%
@@ -45,9 +45,9 @@
   
 
 % renew all representation of counters
-\renewcommand{\thesection}{\devanagarinumeral{section}}
-\renewcommand{\thesubsection}{\thesection.\devanagarinumeral{subsection}}
-\renewcommand{\thesubsubsection}{\thesubsection.\devanagarinumeral{subsubsection}}
+\renewcommand{\thesection}{\devanagarinumeral{section}.}
+\renewcommand{\thesubsection}{\thesection\devanagarinumeral{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\devanagarinumeral{subsubsection}.}
 \renewcommand{\thepage}{\devanagarinumeral{page}}
 \renewcommand{\thefigure}{\devanagarinumeral{figure}}
 \renewcommand{\thetable}{\devanagarinumeral{table}}
