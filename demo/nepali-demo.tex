@@ -1,0 +1,92 @@
+% Author : Prakash Gautam
+% Date   : 11-02-2022 22:44:45
+% vim: ai ts=4 sts=4 et sw=4 ft=tex
+%
+\documentclass[a4paper]{article}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{PNepali}
+
+\usepackage{fontspec}
+\setmainfont[Renderer=HarfBuzz]{Laila}
+\newfontfamily\nsd[Renderer=HarfBuzz]{Noto Serif Devanagari}
+\newfontfamily\lla[Renderer=HarfBuzz]{Laila}
+\newenvironment{nepali}{\nsd}{\par}
+\newenvironment{laila}{\nsd}{\par}
+
+
+\title{अब \LaTeX ~ नेपालीमा पनि}
+\date{\today}
+\author{ प्रकाश}
+
+
+
+\begin{document}
+
+    \maketitle
+
+    \begin{abstract}
+        यो सारांश हो। यसलाई अङ्ग्रेजीमा abstract भनिन्छ। यसले यो दस्तावेजमा भएका कुराहरूको सार सङ्क्षेपमा हामीलाई जानकारी दिन्छ। यसालई धेरै लामो पनि बनाउनु हुँदैन तर यसले पुरै दस्तावेजमा भएका कुराहरूको बारेमा छोटो र छिटो जानकारी दिन सक्नुपर्छ।
+    \end{abstract}
+
+    \tableofcontents
+    \section{खण्ड}
+        यहाँ तल एउटा समिकरण छ।
+
+        \begin{align} \label{eq:trig-tan}
+            \frac{\sin{\phi}}{\cos{\phi}} = \tan{\phi}
+        \end{align}
+        
+        समिकरण (\ref{eq:trig-tan}) मा एउटा त्रिकोणमितिको समान्य सुत्र छ।
+
+        मलाई मनपर्ने सुत्र यो हो।
+
+        \begin{align*}
+            G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi T_{\mu\nu}
+        \end{align*}
+
+        यसलाई सापेक्षतावादको ब्यापक सिद्धान्त पनि भन्न सकिन्छ।
+
+    \section{अन्य कुराहरू}
+
+        \begin{enumerate}
+            \item यो पहिलो कुरा हो।
+            \item यो दोस्रो कुरा हो।
+            \begin{enumerate}
+                \item यहाँ भित्र  पनि छ। 
+                \item अर्को भित्र  पनि छ। 
+            \end{enumerate}
+            \item अझै निरन्तर गर्न त सकिने नै भयो।
+        \end{enumerate}
+
+    \section{कान्तिपुरबाट सानो लेख}
+        गोवामा एउटा मन्दिर थियो— मंगेश मन्दिर। मंग+ईश . मंगेश। मंगेश मन्दिरको वा देवताको नाउँमा त्यहाँ एउटा गाउँ बस्यो— मंगेशी । सम्भावना यो पनि छ कि, गाउँ मंगेशी पहिल्यैदेखि थियो । मंगेशी ग्राम--वासीहरूले कुनै कालमा त्यो मन्दिर बनाएको अथवा महादेवको मूर्ति प्रकट भएकाले, गाउँलेहरूले मन्दिर बनाए र पूजा गर्न थाले। कहिलेदेखि, यो ज्ञात छैन। मंगेशी गाउँका निवासी भन्थे, अति प्राचीनकालमा । त्यसका पुजारी हुन्थे, एक पुजारीको सेखपछि उसको सन्तान पुजारी बन्थ्यो । त्यसरी कुनै बखत एक पुजारीको एक पुत्र जन्म्यो— दीनानाथ ।
+
+        \begin{table}[h!]
+            \centering
+            \caption{यहाँ तालिका छ तल हेर्नुस्}
+            \begin{tabular}{lll}
+                एक & दुई & तीन \\
+                \hline \hline
+                क & ख & ग\\
+                \hline
+            \end{tabular}
+        \end{table}
+    
+        \begin{align}
+            \int\limits_0^\infty x^{n-1} e^{-x} dx = \Gamma(n)
+        \end{align}
+    \section{चित्र भएको खण्ड}
+
+        \begin{figure}
+            \centering
+            \includegraphics[width=.60\linewidth]{../images/logo.png}
+            \caption{यो चित्र हाम्रो प्याकेजको आइकन हो।}
+            \label{fig:pkg-icn}
+        \end{figure}
+        हामी हाम्रो यो प्याकेजको आइकन चित्र (\ref{fig:pkg-icn}) मा देख्न सक्छौँ।
+
+\end{document}
