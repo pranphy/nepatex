@@ -8,14 +8,11 @@
 \usepackage{amssymb}
 \usepackage{parskip}
 \usepackage{graphicx}
-\usepackage{PNepali}
+\usepackage{nepali} % This is the package we are using.
 
 \usepackage{fontspec}
+
 \setmainfont[Renderer=HarfBuzz]{Laila}
-\newfontfamily\nsd[Renderer=HarfBuzz]{Noto Serif Devanagari}
-\newfontfamily\lla[Renderer=HarfBuzz]{Laila}
-\newenvironment{nepali}{\nsd}{\par}
-\newenvironment{laila}{\nsd}{\par}
 
 
 \title{अब \LaTeX ~ नेपालीमा पनि}
@@ -34,6 +31,8 @@
 
     \tableofcontents
     \section{खण्ड}
+        यो दस्तावेज nepali.sty प्रयोग गरेर बनाइएको हो। यसलाई हामी https://github.com/pranphy/nepatex.git बाट प्राप्त गर्न सक्छौँ।
+
         यहाँ तल एउटा समिकरण छ।
 
         \begin{align} \label{eq:trig-tan}
@@ -81,7 +80,7 @@
         \end{align}
     \section{चित्र भएको खण्ड}
 
-        \begin{figure}
+        \begin{figure}[h!]
             \centering
             \includegraphics[width=.60\linewidth]{../images/logo.png}
             \caption{यो चित्र हाम्रो प्याकेजको आइकन हो।}
