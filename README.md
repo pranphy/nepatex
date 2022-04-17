@@ -28,7 +28,7 @@ The default date command `\today` is renewed to print date in BS calendar system
 
 which will produce
 
-> आजको मिति २०७८ फागनु ४ हो।
+> आजको मिति २०७८ फागुन ४ हो।
 
 # Demo
 
