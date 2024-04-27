@@ -16,7 +16,8 @@ $ cp nepatex/package/nepali.sty ~/texmf/tex/latex/
 
 
 
-@note Some systems might need installation of luatex extension to latex explicitly. For example on ubuntu you need to install this with
+> [!NOTE]
+> Some systems might need installation of luatex extension to latex explicitly. For example on ubuntu you need to install this with
 ```bash
 sudo apt install texlive-luatex
 ```
