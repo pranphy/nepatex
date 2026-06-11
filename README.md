@@ -54,3 +54,6 @@ A demo pdf is also included. You can open with your favourite pdf reader
 $ zathura nepali-demo.pdf
 ```
 
+
+# License
+MIT
