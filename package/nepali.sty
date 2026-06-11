@@ -188,20 +188,20 @@ end
 \let\@Roman\devanagari@alph
 
 
-\renewcommand{\labelenumi}{\theenumi.}
-\renewcommand{\theenumi}{\devanagarinumeral{enumi}}
+\ifdefined\labelenumi \renewcommand{\labelenumi}{\theenumi.} \fi
+\ifdefined\theenumi \renewcommand{\theenumi}{\devanagarinumeral{enumi}} \fi
 % Change appearance of enumerate at levels 2, 3, 4.
-%\renewcommand{\labelenumi}{\theenumiv. } % Instead of: (\theenumii)
-\renewcommand{\labelenumii}{\theenumii.} % Instead of: (\theenumii)
-\renewcommand{\labelenumiii}{\theenumiii.} % Instead of: \theenumiii.
-\renewcommand{\theenumiii}{\@roman\c@enumiii} % Instead of: \@roman\c@enumiii
-\renewcommand{\labelenumiv}{(\theenumiv)} % Instead of: \theenumiv.
+%\renewcommand{\labelenumi}{\theenumiv. }
+\ifdefined\labelenumii \renewcommand{\labelenumii}{\theenumii.} \fi
+\ifdefined\labelenumiii\renewcommand{\labelenumiii}{\theenumiii.} \fi
+\ifdefined\theenumiii \renewcommand{\theenumiii}{\@roman\c@enumiii} \fi
+\ifdefined\labelenumiv \renewcommand{\labelenumiv}{(\theenumiv)} \fi
 \makeatother
 
 
 % renew all representation of counters
-\ifdefined\chaptername
-\renewcommand{\thechapter}{\devanagarinumeral{chapter}.}
+\ifdefined\thechapter
+\renewcommand{\thechapter}{\devanagarinumeral{chapter}}
 \fi
 \renewcommand{\thesection}{\devanagarinumeral{section}.}
 \renewcommand{\thesubsection}{\thesection\devanagarinumeral{subsection}.}
@@ -216,13 +216,10 @@ end
 \renewcommand\@biblabel[1]{\devanagarinumeral{#1}}
 \makeatother
 
-\renewcommand{\contentsname}{विषय-सुचि}
-\renewcommand{\abstractname}{सारांश}
+\ifdefined\contentsname \renewcommand{\contentsname}{विषय-सुचि} \fi
+\ifdefined\abstractname \renewcommand{\abstractname}{सारांश} \fi
 
-\renewcommand{\tablename}{तालिका}
-\renewcommand{\figurename}{चित्र}
-
-\ifdefined\chaptername
-  \renewcommand{\chaptername}{परिच्छेद}
-\fi
+\ifdefined\tablename \renewcommand{\tablename}{तालिका} \fi
+\ifdefined\figurename \renewcommand{\figurename}{चित्र} \fi
+\ifdefined\chaptername \renewcommand{\chaptername}{परिच्छेद} \fi
 
